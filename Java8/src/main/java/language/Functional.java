@@ -9,4 +9,13 @@ package language;
 public interface Functional
 {
     void mothd();
+
+    default void defaultMethod()
+    {
+    }
+
+    static void main(String[] args)
+    {
+        System.out.println("Hello");
+    }
 }
