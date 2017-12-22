@@ -13,7 +13,7 @@ public class ClassInfo implements Serializable
     {
         Class clazz = ClassInfo.class;
 
-        InputStream inputStream = clazz.getResourceAsStream("test.txt");
+        InputStream inputStream = clazz.getResourceAsStream("ClassInfo.md");
         byte[] buffer = new byte[1024];
         inputStream.read(buffer);
         System.out.println(new String(buffer));
