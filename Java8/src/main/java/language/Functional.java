@@ -29,14 +29,22 @@ public interface Functional
         // BinaryOperator<T>——将两个T作为输入，返回一个T作为输出
 
         // 方法引用
+
         // 构造器引用，语法是Class::new Class<T>::new 构造器没有参数
+        // 对应的Lambda：() -> new Demo()
         Supplier<Demo> supplier = Demo::new;
         Demo inst = supplier.get();
-        // 静态方法引用，语法是Class::static_method 该方法必须且只能有一个参数
-        // 成员方法的引用，语法是Class::method
+
+        // 静态方法引用，语法是Class::static_method
+        // 对应的Lambda：(i) -> Demo.sMethod(i)
         Consumer<Integer> consumer = Demo::sMethod;
         consumer.accept(10);
+
+        // 成员方法的引用，语法是Class::method
+        // 对应的Lambda：(s, i) -> s.iMethod(i)
+
         // 实例对象的成员方法的引用，语法是instance::method
+        // 对应的Lambda：(s) -> inst.iMethod(s)
         consumer = inst::iMethod;
         consumer.accept(10);
     }
