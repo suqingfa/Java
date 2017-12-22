@@ -6,7 +6,7 @@ import java.lang.reflect.*;
 
 public class ClassInfo implements Serializable
 {
-    public static void main(String[] args)
+    public static void main(String[] args) throws Exception
     {
         Class clazz = ClassInfo.class;
 
@@ -41,6 +41,13 @@ public class ClassInfo implements Serializable
         {
             System.out.println(" " + method.toGenericString());
         }
+
+        // 动态创建对象 设置字段/调用方法
+        ClassInfo inst = (ClassInfo) clazz.newInstance();
+        Field puField = clazz.getField("pu");
+        puField.setInt(inst, 1234);
+        int pu = puField.getInt(inst);
+        System.out.println("Field.getInt: " + pu);
     }
 
     @Getter
