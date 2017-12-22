@@ -11,6 +11,8 @@ repositories {
 }
 
 dependencies {
+    compile('cglib:cglib:3.+')
+
     compileOnly(
             'org.projectlombok:lombok:1.+',
     )
