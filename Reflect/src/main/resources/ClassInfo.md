@@ -4,6 +4,7 @@
     - Class.forName("类名"); .装入类A,并做类的初始化
     
     Class.getResourceAsStream() 会指定要加载的资源路径与当前类所在包的路径一致。
+    在同一个项目中 Class.getResourceAsStream("/xxx") 和 Class.getClassLoader().getResourceAsStream("xxx") 具有相同效果
 
 # Class.getXXX()/Class.getDeclaredXXX
     getXXX 获取当前类的所有public的XXX，包括父类实现的申明的
