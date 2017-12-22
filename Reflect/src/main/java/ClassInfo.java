@@ -2,6 +2,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.annotation.Resource;
+import java.io.InputStream;
 import java.io.Serializable;
 import java.lang.reflect.*;
 
@@ -11,6 +12,11 @@ public class ClassInfo implements Serializable
     public static void main(String[] args) throws Exception
     {
         Class clazz = ClassInfo.class;
+
+        InputStream inputStream = clazz.getResourceAsStream("test.txt");
+        byte[] buffer = new byte[1024];
+        inputStream.read(buffer);
+        System.out.println(new String(buffer));
 
         // 获取类的内部类
         clazz.getDeclaredClasses();
