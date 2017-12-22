@@ -7,6 +7,7 @@ public class ClassInfo implements Serializable
 {
     public static void main(String[] args)
     {
+        Class clazz = ClassInfo.class;
     }
 
     @Getter
