@@ -2,6 +2,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.io.Serializable;
+import java.lang.reflect.*;
 
 public class ClassInfo implements Serializable
 {
@@ -18,6 +19,27 @@ public class ClassInfo implements Serializable
         for (Class interfaceClass : clazz.getInterfaces())
         {
             System.out.println(interfaceClass.toGenericString());
+        }
+
+        // 类构造函数
+        System.out.println("getConstructors:");
+        for (Constructor constructor : clazz.getConstructors())
+        {
+            System.out.println(" " + constructor.toGenericString());
+        }
+
+        // 类申明的字段
+        System.out.println("getDeclaredFields:");
+        for (Field field : clazz.getDeclaredFields())
+        {
+            System.out.println(" " + field.toGenericString());
+        }
+
+        // 类方法
+        System.out.println("getDeclaredMethods:");
+        for (Method method : clazz.getDeclaredMethods())
+        {
+            System.out.println(" " + method.toGenericString());
         }
     }
 
