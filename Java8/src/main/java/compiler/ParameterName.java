@@ -10,6 +10,8 @@ public class ParameterName
         /**
          * java8可以通过Parameter.getName()方法来获取参数名
          * 但是要在编译时带上-parameters参数
+         * idea setting->build,Execution,Deployment->Compiler->Java Compiler
+         * 在Additional command line parameters添加-parameters参数
          */
 
         for (Method method : ParameterName.class.getDeclaredMethods())
