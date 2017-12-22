@@ -1,9 +1,11 @@
 import lombok.Getter;
 import lombok.Setter;
 
+import javax.annotation.Resource;
 import java.io.Serializable;
 import java.lang.reflect.*;
 
+@Resource(name = "ClassInfo")
 public class ClassInfo implements Serializable
 {
     public static void main(String[] args) throws Exception
@@ -48,6 +50,10 @@ public class ClassInfo implements Serializable
         puField.setInt(inst, 1234);
         int pu = puField.getInt(inst);
         System.out.println("Field.getInt: " + pu);
+
+        // 获取注解
+        Resource resource = (Resource) clazz.getAnnotation(Resource.class);
+        System.out.println("Annotation name:" + resource.name());
     }
 
     @Getter
