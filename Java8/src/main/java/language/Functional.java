@@ -1,5 +1,8 @@
 package language;
 
+import java.util.function.Consumer;
+import java.util.function.Supplier;
+
 /**
  * 说明某个接口是函数式接口
  * 只有有一个接口
@@ -8,7 +11,7 @@ package language;
 @FunctionalInterface
 public interface Functional
 {
-    void mothd();
+    void Method();
 
     default void defaultMethod()
     {
@@ -17,5 +20,37 @@ public interface Functional
     static void main(String[] args)
     {
         System.out.println("Hello");
+
+        // 函数接口
+        // Function<T, R>——将T作为输入，返回R作为输出
+        // Predicate<T>——将T作为输入，返回一个布尔值作为输出
+        // Consumer<T>——将T作为输入，不返回任何内容
+        // Supplier<T>——没有输入，返回T
+        // BinaryOperator<T>——将两个T作为输入，返回一个T作为输出
+
+        // 方法引用
+        // 构造器引用，语法是Class::new Class<T>::new 构造器没有参数
+        Supplier<Demo> supplier = Demo::new;
+        Demo inst = supplier.get();
+        // 静态方法引用，语法是Class::static_method 该方法必须且只能有一个参数
+        // 成员方法的引用，语法是Class::method
+        Consumer<Integer> consumer = Demo::sMethod;
+        consumer.accept(10);
+        // 实例对象的成员方法的引用，语法是instance::method
+        consumer = inst::iMethod;
+        consumer.accept(10);
+    }
+
+    class Demo
+    {
+        static void sMethod(int i)
+        {
+            System.out.println("sMethod " + i);
+        }
+
+        void iMethod(int i)
+        {
+            System.out.println("iMethod " + i);
+        }
     }
 }
