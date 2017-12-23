@@ -24,7 +24,7 @@ security.provider 位于文件 %JDK_HOME%/jre/lib/security/java.security
 
 - 添加提供者 <br>
 public static int addProvider(Provider provider) <br>
-public static synchronized int insertProviderAt(Provider provider,int position)
+    Security.addProvider(new BouncyCastleProvider());
 
 - 移除提供者 <br>
 public static synchronized void removeProvider(String name)
