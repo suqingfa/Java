@@ -38,3 +38,28 @@ public static String getProperty(String key)
 
 - 获取指定加密服务所对应的可用算法或类型名称 <br>
 public static Set<String> getAlgorithms(String serviceName)
+
+## MessageDigest 类
+实现消息摘要算法
+
+- 获取实例 <br>
+Java 8 支持 MD2 MD5 SHA-1(SHA) SHA-224 SHA-256 SHA384 SHA-512消息摘要算法，算法名不区分大小写 
+[Algorithm Name](https://docs.oracle.com/javase/8/docs/technotes/guides/security/StandardNames.html#MessageDigest "Algorithm Name") <br>
+public static MessageDigest getInstance(String algorithm) <br>
+public static MessageDigest getInstance(String algorithm, String provider) <br>
+public static MessageDigest getInstance(String algorithm, Provider provider) <br>
+
+- 更新摘要信息 <br>
+public void update(***)
+
+- 完成摘要操作 <br>
+public byte[] digest(***)
+
+- 重置 <br>
+public void reset()
+
+- 返回以字节为单位的摘要长度 <br>
+public final int getDigestLength()
+
+### DigestInputStream/DigestOutputStream 类
+以MessageDigest为核心的消息摘要流实现
