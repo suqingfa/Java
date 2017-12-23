@@ -63,3 +63,14 @@ public final int getDigestLength()
 
 ### DigestInputStream/DigestOutputStream 类
 以MessageDigest为核心的消息摘要流实现
+
+## Key 接口
+密钥具有三个特征
+- 算法 <br>
+public String getAlgorithm();
+- 编码形式 <br>
+public byte[] getEncoded();
+- 格式 <br>
+public String getFormat();
+
+SecurityKey PublicKey PrivateKey三大接口继承于Key接口
