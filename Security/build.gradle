@@ -11,6 +11,7 @@ repositories {
 }
 
 dependencies {
+    compile('org.bouncycastle:bcprov-jdk15on:1.+')
     compileOnly(
             'org.projectlombok:lombok:1.+',
     )
