@@ -334,3 +334,6 @@ public abstract boolean isRevoked(Certificate cert);
 
 ## CertPath CertPathBuilder CertPathValidator 类
 证书链
+
+# javax.net.ssl 包
+提供用于安全套接字的类。
