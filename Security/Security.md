@@ -93,3 +93,15 @@ public KeyPair generateKeyPair()
 ## KeyFactory SecurityKeyFactory 类
 KeyFactory 非对称密钥工厂类 <br>
 SecurityKeyFactory 对称密钥工厂类 <br>
+
+## SecureRandom 类
+强加密随机数生成器(Random Number Generator FNG) <br>
+
+- 获取实例
+public SecureRandom() 构造一个实现默认随机算法的对象 <br>
+public SecureRandom(byte seed[]) 在给定种子的情况下，构造一个实现默认随机算法的对象 <br>
+
+指定算法名称获得对象 <br>
+Java 8 支持 NativePRNG NativePRNGBlocking NativePRNGNonBlocking PKCS11 SHA1PRNG(默认) Windows-PRNG
+[Algorithm Name](https://docs.oracle.com/javase/8/docs/technotes/guides/security/StandardNames.html#SecureRandom) <br>
+public static SecureRandom getInstance(String algorithm) 
