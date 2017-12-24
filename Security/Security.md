@@ -108,3 +108,28 @@ public SecureRandom(byte seed[]) 在给定种子的情况下，构造一个实�
 Java 8 支持 NativePRNG NativePRNGBlocking NativePRNGNonBlocking PKCS11 SHA1PRNG(默认) Windows-PRNG
 [Algorithm Name](https://docs.oracle.com/javase/8/docs/technotes/guides/security/StandardNames.html#SecureRandom) <br>
 public static SecureRandom getInstance(String algorithm) 
+
+## Signature 类
+[示例](./src/main/java/SignatureDemo.java) <br>
+用于生成和验证签名，同样是一个引擎类
+
+- 获取实例 <br>
+Java 8 支持 [Signature Algorithms](https://docs.oracle.com/javase/8/docs/technotes/guides/security/StandardNames.html#Signature) <br>
+public static Signature getInstance(String algorithm)
+
+使用Signature对象签名数据或验证数据包括三个阶段
+
+- 初始化 <br>
+初始化签署签名的私钥 <br>
+public final void initSign(PrivateKey privateKey) <br>
+初始化验证签名的公钥 <br>
+public final void initVerify(PublicKey publicKey) <br>
+public final void initVerify(Certificate certificate)
+
+- 更新 <br>
+更新要签名/验证的数据 <br>
+public final void update(***)
+
+- 签署或验证所有数据 <br>
+public final byte[] sign() <br>
+public final boolean verify(byte[] signature)
