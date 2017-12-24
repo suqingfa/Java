@@ -45,3 +45,14 @@ protected static char[] encodeHex(final byte[] data, final char[] toDigits) <br>
 - 解码 <br>
 public static byte[] decodeHex(final char[] data) <br>
 public static byte[] decodeHex(final String data)
+
+# DigestUtils
+
+- md5 <br>
+public static byte[] md5(final InputStream data) <br>
+public static byte[] md5(final String data) <br>
+public static String md5Hex(final InputStream data)<br>
+public static String md5Hex(final byte[] data) <br>
+public static String md5Hex(final String data)
+
+- sha sha 256 sha384 sha512
