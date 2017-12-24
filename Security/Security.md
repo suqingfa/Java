@@ -148,3 +148,9 @@ public byte[] getSignature()
 
 - 验证 <br>
 public boolean verify(PublicKey verificationKey, Signature verificationEngine)
+
+### Timestamp 类
+数字时间戳 包括时间戳以及有关生成和签署时间戳的Timestamping Authority(TSA)的信息
+ 
+### CodeSigner 类
+代码签名
