@@ -209,3 +209,39 @@ public final SecretKey generateKey()
 
 ### KeyAgreement 类
 密钥协定类，在DH算法中使用
+
+## Cipher 类
+[示例](./src/main/java/CipherDemo.java) <br>
+提供加密解密功能，构成JCE框架的核心
+
+- 获取实例 <br>
+[Cipher Algorithm Names](https://docs.oracle.com/javase/8/docs/technotes/guides/security/StandardNames.html#Cipher) <br>
+transformation 的格式是 "算法/工作模式/填充模式"
+public static final Cipher getInstance(String transformation)
+
+- 初始化 <br>
+    public static final int ENCRYPT_MODE = 1; <br>
+    public static final int DECRYPT_MODE = 2; <br>
+public final void init(int mode, Key key); <br>
+public final void init(int mode, Certificate certificate)
+
+- 更新 <br>
+public final byte[] update(***)
+
+- 结束 <br>
+public final byte[] doFinal(***)
+
+- 密钥的包装与解包 <br>
+初始化模式<br>
+    public static final int WRAP_MODE = 3; <br>
+    public static final int UNWRAP_MODE = 4;
+包装 <br>
+public final byte[] wrap(Key key)
+解包
+wrappedKeyType
+    public static final int PUBLIC_KEY = 1; <br>
+    public static final int PRIVATE_KEY = 2; <br>
+    public static final int SECRET_KEY = 3; <br>
+public final Key unwrap(byte[] wrappedKey, String wrappedKeyAlgorithm, int wrappedKeyType)
+
+### CipherInputStream CipherOutputStream 类
