@@ -248,3 +248,6 @@ public final Key unwrap(byte[] wrappedKey, String wrappedKeyAlgorithm, int wrapp
 
 ### SealedObject 类
 用加密算法创建对象并保护其机密性
+
+# java.security.spec javax.crypto.spec 包
+提供密钥规范和算法参数规范类的接口。获得密钥规范后，我们将有机会还原密钥对象。
