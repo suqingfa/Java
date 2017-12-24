@@ -169,3 +169,7 @@ public boolean verify(PublicKey verificationKey, Signature verificationEngine)
  
 ### CodeSigner 类
 代码签名
+
+# javax.crypto 包
+使用强度较高的加密算法需要替换%JAVA_HOME%/lib/security/中的文件
+[JCE Unlimited](http://www.oracle.com/technetwork/java/javase/downloads/jce8-download-2133166.html)
