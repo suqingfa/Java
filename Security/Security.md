@@ -133,3 +133,18 @@ public final void update(***)
 - 签署或验证所有数据 <br>
 public final byte[] sign() <br>
 public final boolean verify(byte[] signature)
+
+### SignedObject 类
+用来创建实际运行时对象的类。签名对象是对原始对象的“深层复制”。
+
+- 构造对象 <br>
+public SignedObject(Serializable object, PrivateKey signingKey, Signature signingEngine)
+
+- 获取已签名对象 <br>
+public Object getObject()
+
+- 在已签名对象上按字节数组的形式获取签名 <br>
+public byte[] getSignature()
+
+- 验证 <br>
+public boolean verify(PublicKey verificationKey, Signature verificationEngine)
