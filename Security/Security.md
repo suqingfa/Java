@@ -251,3 +251,6 @@ public final Key unwrap(byte[] wrappedKey, String wrappedKeyAlgorithm, int wrapp
 
 # java.security.spec javax.crypto.spec 包
 提供密钥规范和算法参数规范类的接口。获得密钥规范后，我们将有机会还原密钥对象。
+
+## KeySpec AlgorithmParameterSpec 接口
+空接口，仅用于将所有参数规范分组，并为其提供类型安全
