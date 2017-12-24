@@ -76,7 +76,7 @@ public byte[] getEncoded();
 - 格式 <br>
 public String getFormat();
 
-SecurityKey PublicKey PrivateKey三大接口继承于Key接口
+SecretKey PublicKey PrivateKey三大接口继承于Key接口
 
 ### AlgorithmParameters AlgorithmParameterGenerator 类
 AlgorithmParameters是一个引擎类，提供密码参数的不透明表示，在这种表示中，不可以直接访问各参数，只能得到与参数相关联的算法名及该参数集的某类编码。 <br>
@@ -173,3 +173,19 @@ public boolean verify(PublicKey verificationKey, Signature verificationEngine)
 # javax.crypto 包
 使用强度较高的加密算法需要替换%JAVA_HOME%/lib/security/中的文件
 [JCE Unlimited](http://www.oracle.com/technetwork/java/javase/downloads/jce8-download-2133166.html)
+
+## Mac 类
+安全消息摘要/消息认证码 <br>
+
+- 获取实例 <br>
+[Mac Algorithms](https://docs.oracle.com/javase/8/docs/technotes/guides/security/StandardNames.html#Mac) <br>
+public static final Mac getInstance(String algorithm)
+
+- 初始化 <br>
+public final void init(Key key) SecretKey
+
+- 更新 <br>
+public final void update(***)
+
+- 完成摘要操作 <br>
+public final void doFinal(***)
