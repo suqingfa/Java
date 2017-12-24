@@ -89,3 +89,7 @@ public static KeyPairGenerator getInstance(String algorithm)
 
 - 生成KeyPair
 public KeyPair generateKeyPair()
+
+## KeyFactory SecurityKeyFactory 类
+KeyFactory 非对称密钥工厂类 <br>
+SecurityKeyFactory 对称密钥工厂类 <br>
