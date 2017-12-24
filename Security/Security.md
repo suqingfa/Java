@@ -245,3 +245,6 @@ wrappedKeyType
 public final Key unwrap(byte[] wrappedKey, String wrappedKeyAlgorithm, int wrappedKeyType)
 
 ### CipherInputStream CipherOutputStream 类
+
+### SealedObject 类
+用加密算法创建对象并保护其机密性
