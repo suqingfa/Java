@@ -29,3 +29,19 @@ public static byte[] encodeBase64URLSafe(final byte[] binaryData)
 public static byte[] encodeBase64URLSafeString(final byte[] binaryData)
 
 ### Base64InputStream Base64OutputStream
+
+# Hex
+用于十六进制编码/解码
+
+- 编码 <br>
+public static char[] encodeHex(final byte[] data) <br>
+public static char[] encodeHex(final byte[] data, final boolean toLowerCase) <br>
+
+public static String encodeHexString(final byte[] data) <br>
+public static String encodeHexString(final byte[] data, final boolean toLowerCase)
+
+protected static char[] encodeHex(final byte[] data, final char[] toDigits) <br>
+
+- 解码 <br>
+public static byte[] decodeHex(final char[] data) <br>
+public static byte[] decodeHex(final String data)
