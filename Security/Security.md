@@ -373,3 +373,6 @@ public final TrustManager[] getTrustManagers()
 java.util.zip.CRC32 <br>
 update(***) <br>
 long getValue()
+
+# PBE Password Based Encryption 基于口令加密
+[示例](./src/main/java/PbeDemo.java)
