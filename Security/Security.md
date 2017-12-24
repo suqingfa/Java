@@ -74,3 +74,8 @@ public byte[] getEncoded();
 public String getFormat();
 
 SecurityKey PublicKey PrivateKey三大接口继承于Key接口
+
+## AlgorithmParameters AlgorithmParameterGenerator 类
+AlgorithmParameters是一个引擎类，提供密码参数的不透明表示，在这种表示中，不可以直接访问各参数，只能得到与参数相关联的算法名及该参数集的某类编码。 <br>
+AlgorithmParameterGenerator也是一个引擎类，用于生成某个特定算法中使用的参数集合。 <br>
+使用Java提供的加密组件时，很少会用到这两个类，当对算法的参数要求极为严格的情况下才会考虑使用这种方式。
