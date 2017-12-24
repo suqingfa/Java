@@ -269,3 +269,68 @@ public final Key unwrap(byte[] wrappedKey, String wrappedKeyAlgorithm, int wrapp
 继承自SecretKey。 根据一个字节数组构造一个SecretKey。
 
 ### DESKeySpec 类
+
+# java.security.cert 包
+[示例](./src/main/java/CertDemo.java)
+提供证书解析和管理、证书撤销列表(CRL)和证书路径的类和接口
+
+## Certificate 类
+用于证书管理的抽象类。证书有多种类型，如X509证书、PGP证书和SDSI证书。 <br>
+
+提供三个基本操作
+
+- 返回证书的编码形式 <br>
+public abstract byte[] getEncoded()
+
+- 验证证书 <br>
+public abstract void verify(PublicKey key) <br>
+public abstract void verify(PublicKey key, String sigProvider) <br>
+
+- 从证书中获取公钥 <br>
+public abstract PublicKey getPublicKey();
+
+其它操作
+- 获取证书类型 X509 PGP SDSI <br>
+public final String getType()
+
+## CertificateFactory 类
+将证书导入程序中
+
+- 获取实例 <br>
+public static final CertificateFactory getInstance(String type)
+
+- 生成证书对象 <br>
+public final Certificate generateCertificate(InputStream inStream) 使用输入流初始化证书 <br>
+public final Collection<? extends Certificate> generateCertificates(InputStream inStream) 从输入流读取证书集合 <br>
+
+- 生成证书路径对象 <br>
+public final CertPath generateCertPath(InputStream inStream) <br>
+public final CertPath generateCertPath(InputStream inStream, String encoding) <br>
+public final CertPath generateCertPath(List<? extends Certificate> certificates)
+
+- 生成证书撤销列表 <br>
+public final CRL generateCRL(InputStream inStream) <br>
+public final Collection<? extends CRL> generateCRLs(InputStream inStream) <br>
+
+- 返回支持的证书路径编码列表 <br>
+public final Iterator<String> getCertPathEncodings()
+
+## X509Certificate 类
+Certificate类的子类
+
+- 验证证书有效期 <br>
+public abstract void checkValidity() <br>
+public abstract void checkValidity(Date date)
+
+- 获取证书签名 <br>
+public abstract byte[] getSignature();
+
+## CRL X509CRL 类
+- 检查证书是否在CRL中 <br>
+public abstract boolean isRevoked(Certificate cert);
+
+### X509CRLEntry 类
+用于撤销X.509证书
+
+## CertPath CertPathBuilder CertPathValidator 类
+证书链
