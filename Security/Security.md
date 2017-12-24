@@ -189,3 +189,23 @@ public final void update(***)
 
 - 完成摘要操作 <br>
 public final void doFinal(***)
+
+## Key
+
+### KeyGenerator SecretKeyFactory 类
+
+- 获取实例 <br>
+Java 8 [KeyGenerator Algorithms](https://docs.oracle.com/javase/8/docs/technotes/guides/security/StandardNames.html#KeyGenerator) <br>
+public static final KeyGenerator getInstance(String algorithm)
+
+- 初始化 <br>
+与算法无关的初始化 <br>
+public final void init(int keySize) <br>
+特定算法的初始化 <br>
+public final void init(AlgorithmParameterSpec parameterSpec)
+
+- 生成密钥 <br>
+public final SecretKey generateKey()
+
+### KeyAgreement 类
+密钥协定类，在DH算法中使用

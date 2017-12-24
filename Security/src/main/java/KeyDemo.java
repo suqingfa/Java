@@ -1,5 +1,6 @@
 import org.apache.commons.codec.binary.Base64;
 
+import javax.crypto.*;
 import java.security.*;
 
 public class KeyDemo
@@ -12,5 +13,10 @@ public class KeyDemo
         PublicKey publicKey = keyPair.getPublic();
 
         System.out.println(Base64.encodeBase64String(publicKey.getEncoded()));
+
+        KeyGenerator keyGenerator = KeyGenerator.getInstance("AES");
+        keyGenerator.init(256);
+        SecretKey secretKey = keyGenerator.generateKey();
+        System.out.println(Base64.encodeBase64String(secretKey.getEncoded()));
     }
 }
