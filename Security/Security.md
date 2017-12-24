@@ -368,3 +368,8 @@ public final void init(KeyStore ks)
 
 - 返回信任管理器 <br>
 public final TrustManager[] getTrustManagers()
+
+# CRC32
+java.util.zip.CRC32 <br>
+update(***) <br>
+long getValue()
