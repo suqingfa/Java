@@ -336,4 +336,35 @@ public abstract boolean isRevoked(Certificate cert);
 证书链
 
 # javax.net.ssl 包
+[示例](./src/main/java/SslDemo.java) <br>
 提供用于安全套接字的类。
+
+## KeyManagerFactory 类
+引擎类，用于管理密钥。每个密钥管理器管理特定类型的密钥、由安全套接字所使用的密钥内容。密钥内容是基于KeyStore或特定源。
+
+- 获取实例 <br>
+[KeyManagerFactory Algorithms](https://docs.oracle.com/javase/8/docs/technotes/guides/security/StandardNames.html#KeyManagerFactory) <br>
+public static final KeyManagerFactory getInstance(String algorithm) <br>
+- 获取默认算法名称 <br>
+public static final String getDefaultAlgorithm()
+
+- 初始化 <br>
+public final void init(KeyStore ks, char[] password) 
+
+- 获取密钥管理器
+public final KeyManager[] getKeyManagers()
+
+## TrustManagerFactory 类
+管理信任材料的管理器工厂
+
+- 获取实例 <br>
+[TrustManagerFactory Algorithms](https://docs.oracle.com/javase/8/docs/technotes/guides/security/StandardNames.html#TrustManagerFactory) <br>
+public static final TrustManagerFactory getInstance(String algorithm) <br>
+- 获取默认算法名称 <br>
+public static final String getDefaultAlgorithm()
+
+- 初始化 <br>
+public final void init(KeyStore ks)
+
+- 返回信任管理器 <br>
+public final TrustManager[] getTrustManagers()
