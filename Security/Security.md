@@ -254,3 +254,18 @@ public final Key unwrap(byte[] wrappedKey, String wrappedKeyAlgorithm, int wrapp
 
 ## KeySpec AlgorithmParameterSpec 接口
 空接口，仅用于将所有参数规范分组，并为其提供类型安全
+
+## EncodedKeySpec 类
+[示例](./src/main/java/KeyDemo.java)
+用编码格式来表示公钥私钥。
+
+### X509EncodedKeySpec 类
+使用X509标准作为规范管理编码
+
+### PKCS8EncodedKeySpec 类
+使用PKCS#8标准作为规范管理编码
+
+### SecretKeySpec 类
+继承自SecretKey。 根据一个字节数组构造一个SecretKey。
+
+### DESKeySpec 类
