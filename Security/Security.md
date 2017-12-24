@@ -97,6 +97,21 @@ public KeyPair generateKeyPair()
 KeyFactory 非对称密钥工厂类 <br>
 SecurityKeyFactory 对称密钥工厂类 <br>
 
+### KeyStore 类
+用于管理密钥和证书的存储。是一个引擎类，提供一些接口来访问和修改密钥仓库中的信息。
+
+- 获取实例 <br>
+Java 8 支持 [KeyStore Types](https://docs.oracle.com/javase/8/docs/technotes/guides/security/StandardNames.html#KeyStore) <br>
+public static KeyStore getInstance(String type)
+
+- 加载/存储密钥库 <br>
+public final void load(InputStream stream, char[] password) <br>
+public final void store(OutputStream stream, char[] password)
+
+- 读取密钥/证书 <br>
+public final Key getKey(String alias, char[] password) <br>
+public final Certificate getCertificate(String alias)
+
 ## SecureRandom 类
 强加密随机数生成器(Random Number Generator FNG) <br>
 
