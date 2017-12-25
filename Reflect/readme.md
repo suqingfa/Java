@@ -14,3 +14,6 @@ getDeclaredXXX 获取当前类实现的申明的所有XXX, 不包括父类的
 [代码](./src/main/java/Main.java) <br>
 环境 os:windows10 jdk:jdk8 cpu:7-7700hq <br>
 测试结果 通过 Constructor<Integer>.newInstance(Object ... initargs) 方法创建 Integer.MAX_VALUE 个 Integer 对象大约需要 7s
+
+# 通过反射修改不可修改的数据
+[示例](./src/main/java/Change.java)
