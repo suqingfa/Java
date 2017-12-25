@@ -9,11 +9,18 @@ import java.lang.reflect.*;
 @Resource(name = "ClassInfo")
 public class ClassInfo implements Serializable
 {
+    public static int ps;
+    public int pu;
+    protected int po;
+    @Getter
+    @Setter
+    private int pv;
+
     public static void main(String[] args) throws Exception
     {
         Class clazz = ClassInfo.class;
 
-        InputStream inputStream = clazz.getResourceAsStream("ClassInfo.md");
+        InputStream inputStream = clazz.getResourceAsStream("txt");
         byte[] buffer = new byte[1024];
         inputStream.read(buffer);
         System.out.println(new String(buffer));
@@ -61,16 +68,6 @@ public class ClassInfo implements Serializable
         Resource resource = (Resource) clazz.getAnnotation(Resource.class);
         System.out.println("Annotation name:" + resource.name());
     }
-
-    @Getter
-    @Setter
-    private int pv;
-
-    protected int po;
-
-    public int pu;
-
-    public static int ps;
 
     public static void psMethod()
     {

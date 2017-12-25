@@ -34,14 +34,6 @@ public class DynamicProxy implements InvocationHandler
         inst.invoke();
     }
 
-    static class Superclass
-    {
-        void invoke()
-        {
-            System.out.println(" invoke");
-        }
-    }
-
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable
     {
@@ -54,5 +46,13 @@ public class DynamicProxy implements InvocationHandler
     interface DoSomething
     {
         void doSomething();
+    }
+
+    static class Superclass
+    {
+        void invoke()
+        {
+            System.out.println(" invoke");
+        }
     }
 }

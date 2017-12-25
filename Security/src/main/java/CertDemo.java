@@ -1,7 +1,8 @@
 import org.apache.commons.codec.binary.Hex;
 
 import java.security.PublicKey;
-import java.security.cert.*;
+import java.security.cert.CertificateFactory;
+import java.security.cert.X509Certificate;
 
 public class CertDemo
 {

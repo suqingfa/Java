@@ -11,12 +11,6 @@ import java.util.function.Supplier;
 @FunctionalInterface
 public interface Functional
 {
-    void Method();
-
-    default void defaultMethod()
-    {
-    }
-
     static void main(String[] args)
     {
         System.out.println("Hello");
@@ -47,6 +41,12 @@ public interface Functional
         // 对应的Lambda：(s) -> inst.iMethod(s)
         consumer = inst::iMethod;
         consumer.accept(10);
+    }
+
+    void Method();
+
+    default void defaultMethod()
+    {
     }
 
     class Demo
