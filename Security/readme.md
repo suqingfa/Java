@@ -376,3 +376,83 @@ long getValue()
 
 # PBE Password Based Encryption 基于口令加密
 [示例](./src/main/java/PbeDemo.java)
+
+# Java Security
+[示例](./src/main/java/JavaSecurity.java)
+
+## SecurityManager 类
+SecurityManager在Java语言中的作用就是检查操作是否有权限执行。 <br>
+打开SecurityManager -D java.security.manager <br>
+获取实例 System.getSecurityManager() <br>
+SecurityManager 包含很多check** 方法，分别囊括了文件的读写删除和执行、网络的连接和监听、线程的访问、以及其他包括打印机剪贴板等系统功能。
+
+## AccessController 类
+AccessController 是一个无法实例化的类，只包含静态方法 <br>
+SecurityManager 的所有 check 方法，都是基于AccessController。 <br>
+
+AccessController组成
+- CodeSource <br>
+CodeSource就是一个简单的类，用来声明从哪里加载类。
+
+- Permission <br>
+Permission类是AccessController处理的基本实体。Permission类本身是抽象的，它的一个实例代表一个具体的权限。
+权限有两个作用，一个是允许Java API完成对某些资源的访问。
+另一个是可以为自定义权限提供一个范本。权限包含了权限类型、权限名和一组权限操作
+
+- Policy <br>
+策略是一组权限的总称，用于确定权限应该用于哪些代码源。
+代码源标识了类的来源，权限声明了具体的限制。
+策略就是将二者联系起来，策略类Policy主要的方法就是getPermissions(CodeSource)和refresh()方法。 <br>
+在JVM中，任何情况下只能安装一个策略类的实例。
+安装策略类可以通过Policy.setPolicy()方法来进行，也可以通过java.security文件里的policy.provider=sun.security.provider.PolicyFile来进行。
+jdk1.6以后，Policy引入了PolicySpi，后续的扩展基于SPI进行。
+
+- ProtectionDomain <br>
+保护域可以理解为代码源和相应权限的一个组合。表示指派给一个代码源的所有权限。
+保护域是一个代码源的一组权限，而策略是所有的代码源对应的所有的权限的关系。 <br>
+JVM中的每一个类都一定属于且仅属于一个保护域，这由ClassLoader在define class的时候决定。
+但不是每个ClassLoader都有相应的保护域，核心Java API的ClassLoader就没有指定保护域，可以理解为属于系统保护域。
+
+AccessController的使用还是重度关联类加载器的。如果都是一个类加载器且都从一个保护域加载类，那么你构造的checkPermission的方法将正常返回。 
+
+AccessController 另一个比较实用的功能是doPrivilege（授权）。
+假设一个保护域A有读文件的权限，另一个保护域B没有。
+那么通过AccessController.doPrivileged方法，可以将该权限临时授予B保护域的类。
+而这种授权是单向的。也就是说，它可以为调用它的代码授权，但是不能为它调用的代码授权。
+
+## ClassLoader
+ClassLoader对安全模型有三方面的影响
+- 可以结合JVM定义名称空间，以保护Java语言本身安全特性的完整性。
+- 在必要时调用SecurityManager保证代码在定义或者访问类时有适当的权限。
+- 建立了权限与类对象之间的映射，这样AccessController就知道哪些类拥有哪些权限了。
+而这可以绕过建立自定义Policy类，通过自定义ClassLoader并在其中定义类权限而实现。
+
+不同的ClassLoader可以装在相同包名的类，而这时，其实对于每个ClassLoader，有一个自己的名字空间。
+为啥这么干？显然啊，就不说包冲突这事了，从安全角度看，你冒名顶替个com.sun.xx咋办？
+
+类加载器是个层次结构，最基础的是系统类加载器，下面有很多子类。加载一个类时，以委托的形式逐层询问，即父类优先加载，不能加载时再由子类加载。
+
+一旦为一个域的类定义类加载器，那么其他域的类加载器的整个链路上不包含对应域，也就隔离了彼此的类加载。
+
+类装载器加载类时要做的
+- 询问安全管理器是否允许访问当前处理的类。这一步可选，一般在loadClass()方法开始处实现。对应accessClassInPackage权限。 
+
+- 如果类装载器已经载入了此类，它将寻找以前定义的类对象，并返回该对象。<br>
+否则，类装载器将询问其父类，递归查看父类装载器是否知道如何载入此类。
+因此总会是系统类加载器最先加载，从而避免了核心Java API中的类被其他自定义的类冒充。
+
+- 询问安全管理器是否允许程序创建当前处理的类。这一步可选，如果实现，则需要在findClass()的开始处完成。
+这一步不是在操作开始时完成，而是在询问父类装载器之后进行。这一步对应为defineClassInPackage权限。 
+
+- 向一个字节数组中读入类文件。读取文件以及创建字节数组的方式因类加载器不同而不同。在findClass()中完成。
+
+- 为该类创建合适的保护域。保护域可以来自默认安全模型（即从策略文件中得到），也可以由类加载器扩展。
+还有一种方法是可以创建一个代码源对象，并采用其保护域定义。这一步也在findClass()中完成。 
+
+- 在findClass()方法中，通过调用defineClass()方法，可以由字节码构造一个Class对象。
+如果使用的是第6步中的代码源，则需要调用getPermissions()方法查找与代码源相关的权限。
+defineClass()方法还保证了字节码必须通过字节码校验器的检查。 
+
+- 最后还需要解析该类。即它所直接引用的类也应由当前类加载器找到。
+只有直接引用的才算，作为实例变量、方法参数或局部变量来使用的类不算。
+这一步在loadClass()中完成。对应上面代码中的resovleClass()。
