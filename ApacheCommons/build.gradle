@@ -14,6 +14,7 @@ dependencies {
     compile(
             'commons-codec:commons-codec:1.+',
             'commons-cli:commons-cli:1.+',
+            'commons-io:commons-io:2.+',
     )
     compileOnly(
             'org.projectlombok:lombok:1.+',

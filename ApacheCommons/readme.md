@@ -1,4 +1,6 @@
 
+[所有组件列表](http://commons.apache.org/)
+
 # codec 概述
 通用编解码算法 <br>
 [示例](./src/main/java/Codec.java)
@@ -63,3 +65,25 @@ public static String md5Hex(final String data)
 
 # CLI 命令行参数解析器
 [示例](./src/main/java/Cli.java)
+
+# IO 工具包
+
+## FileDeleteStrategy 删除文件
+
+- 使用普通删除策略 <br>
+FileDeleteStrategy strategy = FileDeleteStrategy.NORMAL;
+
+- 使用强制删除策略 <br>
+FileDeleteStrategy strategy = FileDeleteStrategy.FORCE;
+
+- 删除文件 <br>
+删除失败抛出异常 <br>
+public void delete(final File fileToDelete) throws IOException <br>
+删除失败返回false <br>
+public boolean deleteQuietly(final File fileToDelete)
+
+## FileUtils 类
+文件操作工具包 简化 文件读写删除复制等操作
+
+## IOUtils 类
+简化IO操作
