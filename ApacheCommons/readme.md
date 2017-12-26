@@ -1,11 +1,12 @@
-# 概述
+
+# codec 概述
 - org.apache.commons.codec 定义了一些编码转换的接口
 - org.apache.commons.codec.binary 完成编码转换实现，如Base64、二进制，十六进制和字符集编码
 - org.apache.commons.codec.digest 该包仅有一个类DigestUtils，是对原生消息摘要实现的改进。
 - org.apache.commons.codec.language 完成语言和语音编码器的实现
 - org.apache.commons.codec.net 完成网络相关的编码和解码，如url编码/解码
 
-# Bas64
+## Bas64
 
 - 构建 <br>
 控制每行字符数，行未符号及是否支持url <br>
@@ -30,7 +31,7 @@ public static byte[] encodeBase64URLSafeString(final byte[] binaryData)
 
 ### Base64InputStream Base64OutputStream
 
-# Hex
+## Hex
 用于十六进制编码/解码
 
 - 编码 <br>
@@ -46,7 +47,7 @@ protected static char[] encodeHex(final byte[] data, final char[] toDigits) <br>
 public static byte[] decodeHex(final char[] data) <br>
 public static byte[] decodeHex(final String data)
 
-# DigestUtils
+## DigestUtils
 
 - md5 <br>
 public static byte[] md5(final InputStream data) <br>
