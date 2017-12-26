@@ -87,3 +87,42 @@ public boolean deleteQuietly(final File fileToDelete)
 
 ## IOUtils 类
 简化IO操作
+
+# Lang 
+[示例](./src/main/java/Lang.java)
+Lang为java.lang API提供了大量的辅助工具，特别是String操作方法，基本数值方法，对象反射，并发性，创建和序列化以及系统属性。
+
+## ArrayUtils 数组工具
+提供了对基本类型（例如int）、包装类型（例如Integer）和其他引用类型数组的支持。
+该类尝试优雅地处理null值。如果数组为null，并不会抛出异常。如果数组中某个元素为null，才会抛出异常。
+
+实现了对数组的 增删查改等
+
+## RandomStringUtils 生成随机字符串
+
+## SerializationUtils 序列化与反序列化
+
+## Fraction 分数
+继承了Number类，提供精确存储分数的功能。提供了分数运算的方法。
+
+- 获取实例 <br>
+public static Fraction getFraction(double value) <br>
+public static Fraction getFraction(String str) <br>
+private Fraction(final int numerator, final int denominator) <br>
+public static Fraction getFraction(***) <br>
+最简分数
+public static Fraction getReducedFraction(int numerator, int denominator) <br>
+
+- 获取分子分母等 <br>
+public int get***()
+
+- 约分 <br>
+public Fraction reduce()
+
+- 基本操作
+    - public Fraction add(final Fraction fraction)
+    - public Fraction subtract(final Fraction fraction)
+    - public Fraction multiplyBy(final Fraction fraction)
+    - public Fraction divideBy(final Fraction fraction)
+    - public Fraction invert()
+    - public Fraction pow(final int power)
