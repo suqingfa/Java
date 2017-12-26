@@ -60,3 +60,6 @@ public static String md5Hex(final byte[] data) <br>
 public static String md5Hex(final String data)
 
 - sha sha 256 sha384 sha512
+
+# CLI 命令行参数解析器
+[示例](./src/main/java/Cli.java)
