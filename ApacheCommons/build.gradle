@@ -15,7 +15,8 @@ dependencies {
             'commons-codec:commons-codec:1.+',
             'commons-cli:commons-cli:1.+',
             'commons-io:commons-io:2.+',
-            'org.apache.commons:commons-lang3:3.+'
+            'org.apache.commons:commons-lang3:3.+',
+            'org.apache.commons:commons-math3:3.+',
     )
     compileOnly(
             'org.projectlombok:lombok:1.+',

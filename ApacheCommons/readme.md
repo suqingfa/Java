@@ -126,3 +126,56 @@ public Fraction reduce()
     - public Fraction divideBy(final Fraction fraction)
     - public Fraction invert()
     - public Fraction pow(final int power)
+
+# Math
+在得到一组简单的统计学变量时，可以使用描述统计学对其进行初步分析,为下一步分析提供理论依据。
+Commons Math组件的DescriptiveStatistics类提供了相关方法。
+
+## DescriptiveStatistics 统计计算
+DescriptiveStatistics类管理单变量的数据集并基于该数据集进行统计计算。windowSize属性用来设置数据集的大小，默认情况下是不限制数据集大小的。
+由于该类会保存所有的数据，所以对于数据量比较大的统计运算，推荐使用SummaryStatistics类。
+
+常用方法
+
+增加元素 <br>
+public void addValue(double v)
+
+获得第index个元素 <br>
+public double getElement(int index)
+
+几何平均数   getGeometricMean() <br>
+峰度         getKurtosis() <br>
+最大值       getMax() <br>
+最小值       getMin() <br>
+算数平均数   getMean() <br>
+元素个数     getN() <br>
+p分位数      getPercentile(double p) <br>
+偏度         getSkewness() <br>
+标准差       getStandardDeviation() <br>
+和           getSum() <br>
+平方和       getSumsq() <br>
+方差         getVariance() <br>
+
+## Frequency 简单的直方图
+简单的直方图
+
+方法
+
+addValue(v)        使v的频数加1
+getCount(v)        v的频数
+getCumFreq(v)      v的累计频数
+getPct(v)          v的频数百分比
+getCumPct(v)       v的累计频数百分比
+
+## SimpleRegression 一元线性回归计算
+对于给定的平面上的点集，如果其分布形状类似于直线，则可以进行一元线性回归分析。 <br>
+SimpleRegression 使用最小二乘法求解y = intercept + slope * x。
+
+## RealMatrix 实数矩阵
+矩阵是线性代数的基础，其常用运算包括矩阵的加法、减法、乘法、转置等。Commons Math组件的RealMatrix接口定义了这些方法。
+
+## Complex 复数 
+由于负数不能开平方等原因，对实数集进行了扩展，引入了虚数的概念，两者并称为复数。Commons Math组件的Complex类定义了复数运算的方法。
+
+## TDistributionImpl T 分布常用计算
+正态分布是统计学中重要的分布，但是由于数据的方差不易计算，实际应用中更倾向使用T分布。Commons Math组件的TDistributionImpl类定义了T分布常用计算方法。
