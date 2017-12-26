@@ -4,4 +4,5 @@ include 'Java8'
 include 'Security'
 include 'Language'
 include 'ApacheCommons'
+include 'Thumbnailator'
 

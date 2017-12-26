@@ -1,0 +1,21 @@
+group 'Java'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+    jcenter()
+}
+
+dependencies {
+    compile(
+            'commons-codec:commons-codec:1.+',
+            'net.coobird:thumbnailator:0.4.8',
+    )
+    compileOnly(
+            'org.projectlombok:lombok:1.+',
+    )
+}
