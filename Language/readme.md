@@ -18,3 +18,6 @@
 
 - 连接后字符串长度为 100000 时
     - String 用时 2.9 s
+
+## 中文排序 
+[示例](./src/main/java/string/ZhSort.java)
