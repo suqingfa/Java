@@ -17,3 +17,13 @@
 IntStream,LongStream,DoubleStream 等特殊流 <br>
 用它API生成
 
+## 流的中间操作
+[示例](./src/main/java/stream/Intermediate.java)
+
+- 常规对象流和基本类型流之间的相互转换 <br>
+对象流（regular object stream）的mapToInt(), mapToLong()，mapToDouble() <br>
+基本类型流（primitive streams）中的mapToObj() <br>
+
+- filter map slatMap
+- limit skip concat
+- distinct sorted peek
