@@ -1,3 +1,5 @@
+package reflect;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -6,7 +8,7 @@ import java.io.InputStream;
 import java.io.Serializable;
 import java.lang.reflect.*;
 
-@Resource(name = "ClassInfo")
+@Resource(name = "reflect.ClassInfo")
 public class ClassInfo implements Serializable
 {
     public static int ps;
