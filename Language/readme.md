@@ -71,3 +71,7 @@ getDeclaredXXX 获取当前类实现的申明的所有XXX, 不包括父类的
     
 Class.getResourceAsStream() 会指定要加载的资源路径与当前类所在包的路径一致。<br>
 在同一个项目中 Class.getResourceAsStream("/xxx") 和 Class.getClassLoader().getResourceAsStream("xxx") 具有相同效果
+
+# 本地方法
+[示例](./src/main/java/jni)
+生成 .h 头文件 javah -o jni/HelloNative.h  jni.HelloNative
