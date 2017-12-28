@@ -27,3 +27,26 @@ IntStream,LongStream,DoubleStream 等特殊流 <br>
 - filter map slatMap
 - limit skip concat
 - distinct sorted peek
+
+## 流的终结操作
+[示例](./src/main/java/stream/Terminal.java)
+
+### 流的简单终结操作
+返回 Optional<T>
+- count max min 
+- findFirst findAny anyMatch allMatch noneMatch
+
+### 收集结果 
+- forEach
+- toArray
+- collect <br>
+    Collector
+    - toList
+    - toSet
+    - toCollection
+    - joining
+    - summarizingInt/Long/Double 生成对象收集器，用来保存结果个数、总和、平均值、最大/最小值。
+    - toMap 
+    - groupBy
+
+### reduce
