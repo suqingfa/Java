@@ -14,7 +14,8 @@ public class PbeDemo
 
         // 用口令生成密钥
         PBEKeySpec pbeKeySpec = new PBEKeySpec(password.toCharArray());
-        SecretKey secretKey = SecretKeyFactory.getInstance(algorithm).generateSecret(pbeKeySpec);
+        SecretKey secretKey = SecretKeyFactory.getInstance(algorithm)
+                .generateSecret(pbeKeySpec);
 
         // 盐
         byte[] salt = new SecureRandom().generateSeed(8);

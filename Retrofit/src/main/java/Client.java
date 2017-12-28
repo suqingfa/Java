@@ -17,25 +17,34 @@ public class Client
         Service service = retrofit.create(Service.class);
         Response<String[]> response;
 
-        response = service.get().execute();
+        response = service.get()
+                .execute();
         if (response.isSuccessful())
         {
             System.out.println("response:");
-            Arrays.stream(response.body()).reduce(String::concat).ifPresent(System.out::println);
+            Arrays.stream(response.body())
+                    .reduce(String::concat)
+                    .ifPresent(System.out::println);
         }
 
-        response = service.post(new String[]{"1", "2", "3"}).execute();
+        response = service.post(new String[]{"1", "2", "3"})
+                .execute();
         if (response.isSuccessful())
         {
             System.out.println("post:");
-            Arrays.stream(response.body()).reduce(String::concat).ifPresent(System.out::println);
+            Arrays.stream(response.body())
+                    .reduce(String::concat)
+                    .ifPresent(System.out::println);
         }
 
-        response = service.redirect().execute();
+        response = service.redirect()
+                .execute();
         if (response.isSuccessful())
         {
             System.out.println("redirect:");
-            Arrays.stream(response.body()).reduce(String::concat).ifPresent(System.out::println);
+            Arrays.stream(response.body())
+                    .reduce(String::concat)
+                    .ifPresent(System.out::println);
         }
     }
 

@@ -7,7 +7,8 @@ public class SignatureDemo
     public static void main(String[] args) throws Exception
     {
         KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance("DSA");
-        PrivateKey privateKey = keyPairGenerator.generateKeyPair().getPrivate();
+        PrivateKey privateKey = keyPairGenerator.generateKeyPair()
+                .getPrivate();
 
         Signature signature = Signature.getInstance("SHA256withDSA");
         signature.initSign(privateKey);

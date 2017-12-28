@@ -37,15 +37,18 @@ public class StreamDemo
         });
 
         System.out.println("IntStream");
-        intStream.limit(10).forEach(System.out::println);
+        intStream.limit(10)
+                .forEach(System.out::println);
 
         // collect 把stream中的元素转换成另外一种形式
-        Set<Integer> set = Stream.of(1, 1, 2, 3, 4, 5).collect(Collectors.toSet());
+        Set<Integer> set = Stream.of(1, 1, 2, 3, 4, 5)
+                .collect(Collectors.toSet());
         System.out.println("Collectors");
         set.forEach(System.out::println);
 
         // reduce 将stream中所有元素组合起来得到一个元素
-        int sum = Stream.of(1, 2, 3, 4, 5).reduce(0, (x, y) -> x + y);
+        int sum = Stream.of(1, 2, 3, 4, 5)
+                .reduce(0, (x, y) -> x + y);
         System.out.println("reduce " + sum);
     }
 }

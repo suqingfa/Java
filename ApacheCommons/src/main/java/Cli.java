@@ -9,7 +9,7 @@ public class Cli
         options.addOption("v", "verbose", false, "Print out VERBOSE information");
         options.addOption("f", "file", true, "File to save program output to");
 
-        String[] arg = {"-h", "-v", "-f", "file" , "a"};
+        String[] arg = {"-h", "-v", "-f", "file", "a"};
         CommandLine commandLine = new DefaultParser().parse(options, arg);
 
         if (commandLine.hasOption("h"))

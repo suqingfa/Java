@@ -6,7 +6,8 @@ public class CipherDemo
 {
     public static void main(String[] args) throws Exception
     {
-        SecretKey key = KeyGenerator.getInstance("AES").generateKey();
+        SecretKey key = KeyGenerator.getInstance("AES")
+                .generateKey();
 
         Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding ");
         cipher.init(Cipher.ENCRYPT_MODE, key);

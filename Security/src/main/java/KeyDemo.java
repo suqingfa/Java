@@ -24,7 +24,8 @@ public class KeyDemo
 
         // X509EncodedKeySpec
         X509EncodedKeySpec x509EncodedKeySpec = new X509EncodedKeySpec(publicKey.getEncoded());
-        publicKey = KeyFactory.getInstance("RSA").generatePublic(x509EncodedKeySpec);
+        publicKey = KeyFactory.getInstance("RSA")
+                .generatePublic(x509EncodedKeySpec);
         System.out.println(Base64.encodeBase64String(publicKey.getEncoded()));
 
         // SecretKeySpec

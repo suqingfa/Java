@@ -20,7 +20,9 @@ public class StringJoinSpeed
         for (int i = 0; i < count; i++)
         {
             if (i % length == 0)
+            {
                 stringBuilder = new StringBuilder();
+            }
             stringBuilder.append("a");
         }
         System.out.println("time : " + (System.currentTimeMillis() - start));
@@ -30,7 +32,9 @@ public class StringJoinSpeed
         for (int i = 0; i < count; i++)
         {
             if (i % length == 0)
+            {
                 stringBuffer = new StringBuffer();
+            }
             stringBuffer.append("a");
         }
         System.out.println("time : " + (System.currentTimeMillis() - start));
@@ -40,7 +44,9 @@ public class StringJoinSpeed
         for (int i = 0; i < count; i++)
         {
             if (i % length == 0)
+            {
                 string = "";
+            }
             string += "a";
         }
         System.out.println("time : " + (System.currentTimeMillis() - start));

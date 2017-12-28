@@ -1,7 +1,8 @@
 package net.tcp;
 
 import java.io.InputStream;
-import java.net.*;
+import java.net.InetSocketAddress;
+import java.net.Socket;
 
 public class Client
 {
@@ -19,9 +20,11 @@ public class Client
         {
             int i = inputStream.read();
             if (i == -1)
+            {
                 break;
+            }
 
-            System.out.print((char)i);
+            System.out.print((char) i);
         }
 
         // close

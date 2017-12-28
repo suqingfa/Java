@@ -2,15 +2,15 @@ import net.coobird.thumbnailator.Thumbnails;
 import net.coobird.thumbnailator.geometry.Positions;
 
 import javax.imageio.ImageIO;
-import java.io.File;
-import java.net.URL;
 
 public class Main
 {
     public static void main(String[] args) throws Exception
     {
-        String file = Main.class.getResource("map.jpg").getFile();
-        String outFileDir = Main.class.getResource("/").getPath();
+        String file = Main.class.getResource("map.jpg")
+                .getFile();
+        String outFileDir = Main.class.getResource("/")
+                .getPath();
 
         /*
           按比例缩小图片到指定尺寸
@@ -61,7 +61,7 @@ public class Main
          */
         Thumbnails.of(file)
                 .scale(1)
-                .watermark(Positions.CENTER_RIGHT, ImageIO.read( Main.class.getResourceAsStream("200_300.jpg")), 0.3f)
+                .watermark(Positions.CENTER_RIGHT, ImageIO.read(Main.class.getResourceAsStream("200_300.jpg")), 0.3f)
                 .toFile(outFileDir + "watermark.jpg");
 
         /*
