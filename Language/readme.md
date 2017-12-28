@@ -34,3 +34,11 @@
 ## tcp
 [Server](./src/main/java/net/tcp/Server.java)
 [Client](./src/main/java/net/tcp/Client.java)
+
+## web
+
+### url
+[示例](./src/main/java/net/web/URLDemo.java)
+
+### urlConnection
+[示例](./src/main/java/net/web/URLConnectionDemo.java)
