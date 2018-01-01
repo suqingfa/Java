@@ -1,3 +1,4 @@
 dependencies {
     compile('cglib:cglib:3.+')
+    compile('org.ow2.asm:asm:6.+')
 }

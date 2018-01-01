@@ -56,6 +56,10 @@ getDeclaredXXX 获取当前类实现的申明的所有XXX, 不包括父类的
 [示例](./src/main/java/reflect/DynamicProxy.java)    
 使用代理动态实现接口或实现子类
 
+## ASM
+动态生成Java字节码文件（.class） 或者 加载字节码后动态修改字节码    
+[示例](./src/main/java/reflect/AsmDemo.java)    
+
 ## 测试反射效率
 [代码](./src/main/java/reflect/Main.java)    
 环境 os:windows10 jdk:jdk8 cpu:7-7700hq    
