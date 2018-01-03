@@ -5,4 +5,5 @@ include 'Language'
 include 'ApacheCommons'
 include 'Thumbnailator'
 include 'Retrofit'
+include 'VirtualMachine'
 
