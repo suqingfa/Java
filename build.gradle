@@ -18,6 +18,7 @@ configure(allprojects) { project ->
 
         compileOnly(
                 'org.projectlombok:lombok:1.+',
+                'com.google.code.findbugs:jsr305:3.+',
         )
     }
 }
