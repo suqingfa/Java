@@ -10,8 +10,6 @@ public class ZhSort
         // 中文排序
         List<String> words = Arrays.asList("一", "二", "三", "四");
         words.sort(Collator.getInstance(Locale.CHINA));
-        words.stream()
-                .reduce((a, b) -> a + " " + b)
-                .ifPresent(System.out::println);
+        System.out.println(words);
     }
 }
