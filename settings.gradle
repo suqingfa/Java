@@ -6,4 +6,5 @@ include 'ApacheCommons'
 include 'Thumbnailator'
 include 'Retrofit'
 include 'VirtualMachine'
+include 'Java11'
 
